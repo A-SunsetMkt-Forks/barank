@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3872937070167241"
+     crossorigin="anonymous"></script>
+<title>蔚蓝档案学生喜好排序 (231206)</title>
+
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="data.js-date20231018.js"></script>
+<script type="text/javascript" src="sort.js-date20231018.js"></script>
+<script type="text/javascript" src="effect.js-date20180902r1.js"></script>
+<script type="text/javascript" src="ui.js-date20180902r1.js"></script>
+<link rel="stylesheet" type="text/css" href="effect.css-date20180902r1.css" />
+<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+
+<h1>蔚蓝档案学生喜好排序 <span class="version">ver.2.0 Beta</span></h1>
+
+<div id="init">
+  <p class="description">以喜欢的标准来制作角色的排行榜吧。</p>
+  <h2>角色选择</h2>
+  <div id="toggle-chars">
+    <p id="toggle-chars-off"><button onclick="toggle_chars(false);" value="0">以分类为单位</button><br /><span>此处返回到快速选择</span></p>
+    <p id="toggle-chars-on" ><button onclick="toggle_chars(true);" value="1">以角色为单位</button><br /><span>想缩小角色范围早点完成的话看这边！推荐去掉明显不太喜欢的角色。本排序立绘均为原皮，请您在选择时充分考虑到同一角色的不同皮肤立绘。</span></p>
+  </div>
+  <div class="init_win">
+  <fieldset class="official-titles">
+  <legend>
+    <label><input class="group-outer" checked="checked" type="checkbox" /><span>已实装学生</span></label>
+  </legend>
+
+  <ul class="titles">
+    <li>
+      <fieldset>
+        <legend>
+          <label><input class="group-inner" name="a" checked="checked" type="checkbox" /><span>格赫娜</span></label>
+        </legend>
+        <ul class="group-chars">
+         <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>日奈</span></label></li>
+         <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>亚子</span></label></li>
+         <li><label><input class="char" value="003" checked="checked" type="checkbox" /><span>伊织</span></label></li>
+         <li><label><input class="char" value="004" checked="checked" type="checkbox" /><span>千夏</span></label></li>
+         <li><label><input class="char" value="005" checked="checked" type="checkbox" /><span>伊吕波</span></label></li>
+         <li><label><input class="char" value="006" checked="checked" type="checkbox" /><span>阿露</span></label></li>
+         <li><label><input class="char" value="007" checked="checked" type="checkbox" /><span>睦月</span></label></li>
+         <li><label><input class="char" value="008" checked="checked" type="checkbox" /><span>佳代子</span></label></li>
+         <li><label><input class="char" value="009" checked="checked" type="checkbox" /><span>遥香</span></label></li>
+         <li><label><input class="char" value="010" checked="checked" type="checkbox" /><span>晴奈</span></label></li>
+         <li><label><input class="char" value="011" checked="checked" type="checkbox" /><span>淳子</span></label></li>
+         <li><label><input class="char" value="012" checked="checked" type="checkbox" /><span>明里</span></label></li>
+         <li><label><input class="char" value="013" checked="checked" type="checkbox" /><span>泉</span></label></li>
+         <li><label><input class="char" value="014" checked="checked" type="checkbox" /><span>枫香</span></label></li>
+         <li><label><input class="char" value="015" checked="checked" type="checkbox" /><span>朱莉</span></label></li>
+         <li><label><input class="char" value="016" checked="checked" type="checkbox" /><span>濑名</span></label></li>
+         <li><label><input class="char" value="017" checked="checked" type="checkbox" /><span>惠</span></label></li>
+         <li><label><input class="char" value="104" checked="checked" type="checkbox" /><span>霞</span></label></li>
+        </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="b" checked="checked" type="checkbox" /><span>千年</span></label>
+       </legend>
+       <ul class="group-chars">
+         <li><label><input class="char" value="018" checked="checked" type="checkbox" /><span>优香</span></label></li>
+         <li><label><input class="char" value="019" checked="checked" type="checkbox" /><span>诺亚</span></label></li>
+         <li><label><input class="char" value="020" checked="checked" type="checkbox" /><span>小雪</span></label></li>
+         <li><label><input class="char" value="021" checked="checked" type="checkbox" /><span>尼禄</span></label></li>
+         <li><label><input class="char" value="022" checked="checked" type="checkbox" /><span>明日奈</span></label></li>
+         <li><label><input class="char" value="023" checked="checked" type="checkbox" /><span>花凛</span></label></li>
+         <li><label><input class="char" value="024" checked="checked" type="checkbox" /><span>朱音</span></label></li>
+         <li><label><input class="char" value="025" checked="checked" type="checkbox" /><span>时</span></label></li>
+         <li><label><input class="char" value="026" checked="checked" type="checkbox" /><span>歌原</span></label></li>
+         <li><label><input class="char" value="027" checked="checked" type="checkbox" /><span>响</span></label></li>
+         <li><label><input class="char" value="028" checked="checked" type="checkbox" /><span>柯托莉</span></label></li>
+         <li><label><input class="char" value="029" checked="checked" type="checkbox" /><span>柚子</span></label></li>
+         <li><label><input class="char" value="030" checked="checked" type="checkbox" /><span>桃井</span></label></li>
+         <li><label><input class="char" value="031" checked="checked" type="checkbox" /><span>绿</span></label></li>
+         <li><label><input class="char" value="032" checked="checked" type="checkbox" /><span>爱丽丝</span></label></li>
+         <li><label><input class="char" value="033" checked="checked" type="checkbox" /><span>千寻</span></label></li>
+         <li><label><input class="char" value="034" checked="checked" type="checkbox" /><span>真纪</span></label></li>
+         <li><label><input class="char" value="035" checked="checked" type="checkbox" /><span>晴</span></label></li>
+         <li><label><input class="char" value="036" checked="checked" type="checkbox" /><span>小玉</span></label></li>
+         <li><label><input class="char" value="037" checked="checked" type="checkbox" /><span>日鞠</span></label></li>
+         <li><label><input class="char" value="038" checked="checked" type="checkbox" /><span>艾米</span></label></li>
+         <li><label><input class="char" value="039" checked="checked" type="checkbox" /><span>菫</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="c" checked="checked" type="checkbox" /><span>三一</span></label>
+       </legend>
+       <ul class="group-chars">
+         <li><label><input class="char" value="040" checked="checked" type="checkbox" /><span>未花</span></label></li>
+         <li><label><input class="char" value="041" checked="checked" type="checkbox" /><span>渚</span></label></li>
+         <li><label><input class="char" value="042" checked="checked" type="checkbox" /><span>鹤城</span></label></li>
+         <li><label><input class="char" value="043" checked="checked" type="checkbox" /><span>莲见</span></label></li>
+         <li><label><input class="char" value="044" checked="checked" type="checkbox" /><span>真白</span></label></li>
+		 <li><label><input class="char" value="105" checked="checked" type="checkbox" /><span>一花</span></label></li>
+         <li><label><input class="char" value="045" checked="checked" type="checkbox" /><span>樱子</span></label></li>
+         <li><label><input class="char" value="046" checked="checked" type="checkbox" /><span>玛丽</span></label></li>
+         <li><label><input class="char" value="047" checked="checked" type="checkbox" /><span>日向</span></label></li>
+         <li><label><input class="char" value="048" checked="checked" type="checkbox" /><span>美祢</span></label></li>
+         <li><label><input class="char" value="049" checked="checked" type="checkbox" /><span>芹娜</span></label></li>
+         <li><label><input class="char" value="050" checked="checked" type="checkbox" /><span>花江</span></label></li>
+         <li><label><input class="char" value="051" checked="checked" type="checkbox" /><span>日富美</span></label></li>
+         <li><label><input class="char" value="052" checked="checked" type="checkbox" /><span>梓</span></label></li>
+         <li><label><input class="char" value="053" checked="checked" type="checkbox" /><span>小春</span></label></li>
+         <li><label><input class="char" value="054" checked="checked" type="checkbox" /><span>花子</span></label></li>
+         <li><label><input class="char" value="055" checked="checked" type="checkbox" /><span>夏</span></label></li>
+         <li><label><input class="char" value="056" checked="checked" type="checkbox" /><span>和纱</span></label></li>
+         <li><label><input class="char" value="057" checked="checked" type="checkbox" /><span>好美</span></label></li>
+         <li><label><input class="char" value="058" checked="checked" type="checkbox" /><span>爱莉</span></label></li>
+         <li><label><input class="char" value="059" checked="checked" type="checkbox" /><span>铃美</span></label></li>
+         <li><label><input class="char" value="060" checked="checked" type="checkbox" /><span>玲纱</span></label></li>
+         <li><label><input class="char" value="061" checked="checked" type="checkbox" /><span>忧</span></label></li>
+         <li><label><input class="char" value="062" checked="checked" type="checkbox" /><span>志美子</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="h" checked="checked" type="checkbox" /><span>阿里乌斯</span></label>
+       </legend>
+       <ul class="group-chars">
+         <li><label><input class="char" value="063" checked="checked" type="checkbox" /><span>纱织</span></label></li>
+         <li><label><input class="char" value="064" checked="checked" type="checkbox" /><span>亚津子</span></label></li>
+         <li><label><input class="char" value="065" checked="checked" type="checkbox" /><span>美咲</span></label></li>
+         <li><label><input class="char" value="066" checked="checked" type="checkbox" /><span>日和</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+	    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="l" checked="checked" type="checkbox" /><span>阿拜多斯</span></label>
+       </legend>
+       <ul class="group-chars">
+         <li><label><input class="char" value="067" checked="checked" type="checkbox" /><span>星野</span></label></li>
+         <li><label><input class="char" value="068" checked="checked" type="checkbox" /><span>白子</span></label></li>
+         <li><label><input class="char" value="069" checked="checked" type="checkbox" /><span>野宫</span></label></li>
+         <li><label><input class="char" value="070" checked="checked" type="checkbox" /><span>芹香</span></label></li>
+         <li><label><input class="char" value="071" checked="checked" type="checkbox" /><span>绫音</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="d" checked="checked" type="checkbox" /><span>百鬼夜行</span></label>
+       </legend>
+      <ul class="group-chars">
+         <li><label><input class="char" value="072" checked="checked" type="checkbox" /><span>若藻</span></label></li>
+         <li><label><input class="char" value="073" checked="checked" type="checkbox" /><span>果穗</span></label></li>
+         <li><label><input class="char" value="074" checked="checked" type="checkbox" /><span>千世</span></label></li>
+         <li><label><input class="char" value="075" checked="checked" type="checkbox" /><span>满</span></label></li>
+         <li><label><input class="char" value="076" checked="checked" type="checkbox" /><span>月咏</span></label></li>
+         <li><label><input class="char" value="077" checked="checked" type="checkbox" /><span>泉奈</span></label></li>
+         <li><label><input class="char" value="078" checked="checked" type="checkbox" /><span>静子</span></label></li>
+         <li><label><input class="char" value="079" checked="checked" type="checkbox" /><span>菲娜</span></label></li>
+         <li><label><input class="char" value="080" checked="checked" type="checkbox" /><span>椿</span></label></li>
+         <li><label><input class="char" value="081" checked="checked" type="checkbox" /><span>三森</span></label></li>
+         <li><label><input class="char" value="082" checked="checked" type="checkbox" /><span>枫</span></label></li>
+		 <li><label><input class="char" value="110" checked="checked" type="checkbox" /><span>缘里</span></label></li>
+		 <li><label><input class="char" value="111" checked="checked" type="checkbox" /><span>莲华</span></label></li>
+		 <li><label><input class="char" value="112" checked="checked" type="checkbox" /><span>桔梗</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+	    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="e" checked="checked" type="checkbox" /><span>山海经</span></label>
+       </legend>
+      <ul class="group-chars">
+         <li><label><input class="char" value="083" checked="checked" type="checkbox" /><span>南</span></label></li>
+         <li><label><input class="char" value="084" checked="checked" type="checkbox" /><span>瑠美</span></label></li>
+         <li><label><input class="char" value="085" checked="checked" type="checkbox" /><span>瞬</span></label></li>
+         <li><label><input class="char" value="086" checked="checked" type="checkbox" /><span>瞬（幼女）</span></label></li>
+         <li><label><input class="char" value="087" checked="checked" type="checkbox" /><span>心奈</span></label></li>
+         <li><label><input class="char" value="088" checked="checked" type="checkbox" /><span>纱绫</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+	<li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="f" checked="checked" type="checkbox" /><span>赤冬</span></label>
+       </legend>
+      <ul class="group-chars">
+         <li><label><input class="char" value="089" checked="checked" type="checkbox" /><span>切里诺</span></label></li>
+         <li><label><input class="char" value="090" checked="checked" type="checkbox" /><span>巴</span></label></li>
+         <li><label><input class="char" value="091" checked="checked" type="checkbox" /><span>玛丽娜</span></label></li>
+         <li><label><input class="char" value="092" checked="checked" type="checkbox" /><span>和香</span></label></li>
+         <li><label><input class="char" value="093" checked="checked" type="checkbox" /><span>时雨</span></label></li>
+         <li><label><input class="char" value="094" checked="checked" type="checkbox" /><span>实梨</span></label></li>
+         <li><label><input class="char" value="095" checked="checked" type="checkbox" /><span>梅露</span></label></li>
+         <li><label><input class="char" value="096" checked="checked" type="checkbox" /><span>红叶</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+		<li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="g" checked="checked" type="checkbox" /><span>瓦尔基里,SRT</span></label>
+       </legend>
+      <ul class="group-chars">
+         <li><label><input class="char" value="097" checked="checked" type="checkbox" /><span>康娜</span></label></li>
+         <li><label><input class="char" value="098" checked="checked" type="checkbox" /><span>桐乃</span></label></li>
+         <li><label><input class="char" value="099" checked="checked" type="checkbox" /><span>吹雪</span></label></li>
+         <li><label><input class="char" value="100" checked="checked" type="checkbox" /><span>宫子</span></label></li>
+         <li><label><input class="char" value="101" checked="checked" type="checkbox" /><span>咲</span></label></li>
+         <li><label><input class="char" value="102" checked="checked" type="checkbox" /><span>萌绘</span></label></li>
+         <li><label><input class="char" value="103" checked="checked" type="checkbox" /><span>美游</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+		<li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="i" checked="checked" type="checkbox" /><span>其他</span></label>
+       </legend>
+      <ul class="group-chars">
+         <li><label><input class="char" value="106" checked="checked" type="checkbox" /><span>初音未来</span></label></li>
+		 <li><label><input class="char" value="107" checked="checked" type="checkbox" /><span>御坂美琴</span></label></li>
+		 <li><label><input class="char" value="108" checked="checked" type="checkbox" /><span>食蜂操祈</span></label></li>
+		 <li><label><input class="char" value="109" checked="checked" type="checkbox" /><span>佐天泪子</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+  </ul>
+  </fieldset>
+  
+  <fieldset class="extra-titles">
+  <legend>
+    <label><input class="group-outer" type="checkbox" /><span>NPC及卫星</span></label>
+  </legend>
+  
+  <ul class="titles">
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="j" type="checkbox" /><span>联邦学生会,夏莱</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="901" type="checkbox" /><span>阿罗娜</span></label></li>
+        <li><label><input class="char" value="902" type="checkbox" /><span>普拉娜</span></label></li>
+        <li><label><input class="char" value="903" type="checkbox" /><span>空</span></label></li>
+        <li><label><input class="char" value="904" type="checkbox" /><span>凛</span></label></li>
+        <li><label><input class="char" value="905" type="checkbox" /><span>桃香</span></label></li>
+        <li><label><input class="char" value="906" type="checkbox" /><span>花耶</span></label></li>
+        <li><label><input class="char" value="907" type="checkbox" /><span>步美</span></label></li>
+        <li><label><input class="char" value="908" type="checkbox" /><span>葵</span></label></li>
+        <li><label><input class="char" value="909" type="checkbox" /><span>李</span></label></li>
+        <li><label><input class="char" value="910" type="checkbox" /><span>灰音</span></label></li>
+        <li><label><input class="char" value="911" type="checkbox" /><span>会长</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="a" type="checkbox" /><span>格赫娜</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="801" type="checkbox" /><span>真琴</span></label></li>
+        <li><label><input class="char" value="802" type="checkbox" /><span>伊吹</span></label></li>
+        <li><label><input class="char" value="803" type="checkbox" /><span>皐月</span></label></li>
+        <li><label><input class="char" value="804" type="checkbox" /><span>绘里香</span></label></li>
+        <li><label><input class="char" value="805" type="checkbox" /><span>绮良</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="b" type="checkbox" /><span>千年</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="806" type="checkbox" /><span>莉音</span></label></li>
+        <li><label><input class="char" value="822" type="checkbox" /><span>kei</span></label></li>
+        </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="c" type="checkbox" /><span>三一</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="807" type="checkbox" /><span>圣娅</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="d" type="checkbox" /><span>百鬼夜行</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="810" type="checkbox" /><span>葛叶</span></label></li>
+        <li><label><input class="char" value="811" type="checkbox" /><span>名草</span></label></li>
+        <li><label><input class="char" value="812" type="checkbox" /><span>妮娅</span></label></li>
+        <li><label><input class="char" value="813" type="checkbox" /><span>海香</span></label></li>
+		<li><label><input class="char" value="827" type="checkbox" /><span>棕榈</span></label></li>
+		<li><label><input class="char" value="828" type="checkbox" /><span>新</span></label></li>
+		<li><label><input class="char" value="829" type="checkbox" /><span>虞美人</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="e" type="checkbox" /><span>山海经</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="808" alt="140" type="checkbox" /><span>妃咲</span></label></li>
+        <li><label><input class="char" value="809" alt="141" type="checkbox" /><span>丽情</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+	    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="d" type="checkbox" /><span>SRT</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="814" type="checkbox" /><span>雪乃</span></label></li>
+        <li><label><input class="char" value="815" type="checkbox" /><span>妮可</span></label></li>
+        <li><label><input class="char" value="816" type="checkbox" /><span>胡桃</span></label></li>
+        <li><label><input class="char" value="817" type="checkbox" /><span>音葵</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+	    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="k" type="checkbox" /><span>克罗诺斯</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="818" type="checkbox" /><span>志乃</span></label></li>
+        <li><label><input class="char" value="819" type="checkbox" /><span>麦</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+		    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="f" type="checkbox" /><span>赤冬</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="825" type="checkbox" /><span>贵音</span></label></li>
+        <li><label><input class="char" value="826" type="checkbox" /><span>八云</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+		    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="l" type="checkbox" /><span>阿拜多斯</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="821" type="checkbox" /><span>白子（色彩）</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+	 <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="i" type="checkbox" /><span>其他</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="820" type="checkbox" /><span>兰舞</span></label></li>
+        <li><label><input class="char" value="823" type="checkbox" /><span>晶</span></label></li>
+        <li><label><input class="char" value="824" type="checkbox" /><span>廻</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+  </ul>
+  </fieldset>
+  
+  <fieldset id="option">
+    <legend>设置</legend>
+    <ul>
+      <li><label>排名计数
+        <select id="rank_num">
+          <option value="10" selected="selected">前10名</option>
+          <option value="1">第1名</option>
+          <option value="5">前5名</option>
+          <option value="20">前20名</option>
+          <option value="30">前30名</option>
+          <option value="50">前50名</option>
+          <option value="100">前100名</option>
+          <option value="999">全排</option>
+        </select>
+      </label></li>
+      <li><label><input id="enableEvenChoice" value="1" name="enableEvenChoice" type="checkbox" />使选不出来（平局）有效</label></li>
+      <li>画像类型
+        <ul class="illust-type">
+          <li><label><input value="1" name="facePattern" type="radio" checked="checked" />立绘</label></li>
+          <li><label><input value="99" name="facePattern" type="radio" />无画像</label></li>
+        </ul>
+      </li>
+    </ul>
+  </fieldset>
+  <div class="clear"><button id="start_button">开始排名！</button></div>
+  </div>
+</div>
+
+<div style="display: none;" id="ui">
+  <h2>选择您更喜欢的那一位</h2>
+    <h3 class="count">第 <span id="count">0</span> 问</h3>
+    <p id="caption"></p>
+  <div class="zitem" id="left">
+  	<div><img accesskey="1" width="200" height="300" /></div>
+  	<div class="caption">
+      <h3 class="nick"></h3>
+      <p class="name"></p>
+  	</div>
+  </div>
+  <div class="zitem" id="right">
+  	<div><img accesskey="2" width="200" height="300" /></div>
+  	<div class="caption">
+      <h3 class="nick"></h3>
+      <p class="name"></p>
+  	</div>
+  </div>
+  <div class="special_select">
+    <button onclick="remove_left()">将左边的角色从排序中删除</button>
+    <button onclick="remove_right()">将右边的角色从排序中删除</button><br />
+    <button id="hold" onclick="ask_hold()">暂时跳过</button>
+    <button id="back" onclick="ask_back()">返回上一问</button><br />
+    <button id="even" onclick="select_even()">选不出来</button>
+    <button onclick="return (confirm('确定吗？') &amp;&amp; auto_sort());">将剩余角色全部随机排序</button>
+    
+    <!-- button onclick="return (toggle_current());">デバッグ</button -->
+    <p>Tips！在PC上，Alt+1可以选择左边的角色，Alt+2可以选择右边的角色。<br />(Firefox 为 Alt+Shift+1/2)</p>
+  </div>
+</div>
+
+<div style="display: none;" id="result">
+</div>
+
+<p id="times"></p>
+<!--
+<ul id="samp" class="debug" ></ul>
+<ul id="sampback" class="debug"></ul>
+-->
+<div style="display: none;" id="reset">
+<button id="reset_button">返回开始</button>
+</div>
+
+
+<div id="attension">
+<p>
+<a href="uplog.html" target="_blank">更新日志</a><br />
+<a href="acknowledgement.html" target="_blank">致谢名单</a><br />
+<a href="https://afdian.net/a/khrisma" target="_blank">赞助作者</a><br />
+<a href="https://saiba.moe/" target="_blank">返回主站</a></p>
+</div>
+<address>
+<br />Original Script：ねこトトラ
+<br />Customize & Localize：Khrisma
+<br />根据选项的顺序，结果可能会发生变动（顺序效果）。
+<br />このスクリプトの利用・改造・転載等は<strong>画像を除いて</strong>自由です。
+<br />《蔚蓝档案》是由Nexon Korea旗下子公司NAT Games开发，日本Yostar发行营运的一款美少女RPG养成游戏。</p>
+</address>
+
+</body>
+</html>

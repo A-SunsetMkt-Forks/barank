@@ -16,7 +16,7 @@
 <script type="text/javascript" src="effect.js-date20180902r1.js"></script>
 <script type="text/javascript" src="ui.js-date20180902r1.js"></script>
 <link rel="stylesheet" type="text/css" href="effect.css-date20180902r1.css" />
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="style-mobile.css" />
 </head>
 <body>
 
@@ -24,10 +24,8 @@
 
 <div id="init">
   <p class="description">以喜欢的标准来制作角色的排行榜吧。</p>
-  <h2>角色选择</h2>
   <div id="toggle-chars">
-    <p id="toggle-chars-off"><button onclick="toggle_chars(false);" value="0">以分类为单位</button><br /><span>此处返回到快速选择</span></p>
-    <p id="toggle-chars-on" ><button onclick="toggle_chars(true);" value="1">以角色为单位</button><br /><span>想缩小角色范围早点完成的话看这边！推荐去掉明显不太喜欢的角色。本排序立绘均为原皮，请您在选择时充分考虑到同一角色的不同皮肤立绘。</span></p>
+    <p id="toggle-chars-on" ><button onclick="window.open('test.html','_self');" value="1">切换为桌面版</button><br /><span>移动端暂不支持选择个别角色，若需此功能，请您点击上方按钮进入桌面版。<br/>本排序立绘均为原皮，请您在选择时充分考虑到同一角色的不同皮肤立绘。</span></p>
   </div>
   <div class="init_win">
   <fieldset class="official-titles">
@@ -407,7 +405,7 @@
       <li><label><input id="enableEvenChoice" value="1" name="enableEvenChoice" type="checkbox" />使选不出来（平局）有效</label></li>
       <li>画像类型
         <ul class="illust-type">
-          <li><label><input value="1" name="facePattern" type="radio" checked="checked" />立绘</label></li>
+          <li><label><input value="1" name="facePattern" type="radio" checked="checked" />立绘</label></li><br/>
           <li><label><input value="99" name="facePattern" type="radio" />无画像</label></li>
         </ul>
       </li>

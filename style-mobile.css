@@ -148,12 +148,12 @@ legend{
 }
 
 #result {
-	width:600px;
+	width:350px;
 	margin:0 auto;
 }
 
 #result #viewSimpleResult {
-	width:300px;
+	width:200px;
 	height:3em;
 	
 	display:block;
@@ -170,11 +170,11 @@ legend{
 
 #result .simpleResult li {
 	list-style-type: square;
-	list-style-position: inside;
+	list-style-position: outside;
 	float: none;
 	text-align: left;
-	border:1px orange outset;
-	border-width:0 0 1px 1px;
+	border:1px #69c outset;
+	border-width:0;
 }
 
 #result ul{
@@ -201,7 +201,7 @@ legend{
 
 #result img{
 	-moz-box-shadow: #69c 3px 3px 5px;
-	border:1px solid orange;
+	border:1px solid #69c;
 }
 
 #reset {
@@ -220,17 +220,17 @@ legend{
 }
 
 .rs_1st li{
-	width: 25%;
+	width: 50%;
 	font-size: large;
 }
 
 .rs_2nd li{
-	width: 25%;
+	width: 50%;
 	font-size: large;
 }
 
 .rs_3rd li{
-	width: 25%;
+	width: 50%;
 	font-size: large;
 }
 
@@ -247,7 +247,7 @@ legend{
 }
 
 .rs_4th li{
-	width: 12.5%;
+	width: 25%;
 	font-size: small;
 }
 

@@ -476,7 +476,6 @@ function show_result() {
 	if( timeElapsed > 0 ){
 		strHtm += '<span id="elapsed"> (' + timeElapsedMinutes + ' 分)</span>';
 	}
-	strHtm += '</h2>\n<ul class="rs_1st">\n';
 	for (let i = 0; i < aryRanks.length; i++) {
 		if (i <= 10 && i % 2 == 0) {
 			strHtm += '</ul>\n<ul class="rs_2nd">\n';

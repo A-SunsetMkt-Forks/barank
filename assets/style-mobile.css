@@ -8,6 +8,7 @@ body{
 button {
 	background-color:#66f;
 	color:#00e;
+	font-family: "MiSans", sans-serif;
 }
 button:hover {
 	background-color:#f66;

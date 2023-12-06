@@ -478,13 +478,10 @@ function show_result() {
 	}
 	strHtm += '</h2>\n<ul class="rs_1st">\n';
 	for (let i = 0; i < aryRanks.length; i++) {
-		if (i == 2) {
+		if (i <= 10 && i % 2 == 0) {
 			strHtm += '</ul>\n<ul class="rs_2nd">\n';
 		}
-		if (i == 6) {
-			strHtm += '</ul>\n<ul class="rs_3rd">\n';
-		}
-		if (i >= 10 && i % 10 == 0) {
+		if (i >= 10 && i % 4 == 2) {
 			strHtm += '</ul>\n<ul class="rs_4th">\n';
 		}
 		let rankNo = aryRanks[i].rank();
@@ -492,7 +489,7 @@ function show_result() {
 		if (FacePattern == noFacePatternNo) {
 			strHtm += aryRanks[i].name + '</li><br/>\n';
 		} else {
-			strHtm += '<img src="' + aryRanks[i].getImagePath() + '" alt="' + aryRanks[i].nick + '" /><br />' + aryRanks[i].name + '</li><br/>\n';
+			strHtm += '<img src="' + aryRanks[i].getImagePath() + '" alt="' + aryRanks[i].nick + '" /><br />' + aryRanks[i].name + '</li>\n';
 		}
 		// 引き分けている場合は先頭に識別子を付加
 		strResults.push((aryRanks[i].isEven ? "!" : "") + aryRanks[i].id);

@@ -371,7 +371,7 @@ function remove_both() {
 // 左は除外
 function remove_left() {
 	if(isFirstRemoveChoice){
-		alert("注意：「ソートから外す」を選択すると、\n結果にも表示されなくなります。\nなるべく枠内を選択してくださいね。");
+		alert("注意：如果选择「不再出现」、\n则此角色也不会显示在结果中。\n请尽量选择框内。");
 		isFirstRemoveChoice = false;
 	}
 	backup();
@@ -384,7 +384,7 @@ function remove_left() {
 // 右は除外
 function remove_right() {
 	if(isFirstRemoveChoice){
-		alert("注意：「ソートから外す」を選択すると、\n結果にも表示されなくなります。\nなるべく枠内を選択してくださいね。");
+		alert("注意：如果选择「不再出现」、\n则此角色也不会显示在结果中。\n请尽量选择框内。");
 		isFirstRemoveChoice = false;
 	}
 	backup();

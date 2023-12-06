@@ -19,9 +19,6 @@ $(document).ready(function() {
 		if( FacePattern && noFacePatternNo && FacePattern == noFacePatternNo ){
 			return;
 		}
-		
-		//Display the caption
-		$(this).find('div.caption').stop(false,true).fadeIn(200);
 	},
 	function() {
 		//Reset the image
@@ -31,9 +28,6 @@ $(document).ready(function() {
 		if( FacePattern && noFacePatternNo && FacePattern == noFacePatternNo ){
 			return;
 		}
-		
-		//Hide the caption
-		$(this).find('div.caption').stop(false,true).fadeOut(200);
 	});
 });
 

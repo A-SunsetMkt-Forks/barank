@@ -54,6 +54,7 @@ h2{
 	text-shadow: #ccc 3px 3px 5px;
 	color: #69f;
 	text-align: center;
+	font-weight:500;
 }
 h3.count{
 	text-shadow: #ccc 3px 3px 5px;
@@ -100,6 +101,7 @@ label{
 	text-align:center;
 	color:red;
 	font-size:0.6em;
+	font-weight:300;
 }
 
 .titles fieldset {
@@ -132,7 +134,7 @@ label{
 }
 
 legend{
-	font-weight: bold;
+	font-weight: 600;
 }
 
 /* 正伝と外伝のそれぞれでキャラ個別の高さを合わせる */
@@ -184,7 +186,7 @@ legend{
 #result li{
 	list-style-type: none;
 	text-align: center;
-	font-weight: bold;
+	font-weight: 600;
 	float: left;
 	color: #069;
 	text-shadow: #ccc 3px 3px 5px;

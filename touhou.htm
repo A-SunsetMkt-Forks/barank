@@ -1,0 +1,578 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+
+<title>東方キャラソート・MF (旧～虹)</title>
+
+<script type="text/javascript" src="jquery-3.3.1.min.js" tppabs="http://readalittle.net/sort/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="data.js-date20210627r1.js" tppabs="http://readalittle.net/sort/data.js?date20210627r1"></script>
+<script type="text/javascript" src="sort.js-date20190710r1.js" tppabs="http://readalittle.net/sort/sort.js?date20190710r1"></script>
+<script type="text/javascript" src="effect.js-date20180902r1.js" tppabs="http://readalittle.net/sort/effect.js?date20180902r1"></script>
+<script type="text/javascript" src="ui.js-date20180902r1.js" tppabs="http://readalittle.net/sort/ui.js?date20180902r1"></script>
+<link rel="stylesheet" type="text/css" href="effect.css-date20180902r1.css" tppabs="http://readalittle.net/sort/effect.css?date20180902r1" />
+<link rel="stylesheet" type="text/css" href="style.css-date20190121r1.css" tppabs="http://readalittle.net/sort/style.css?date20190121r1" />
+</head>
+<body>
+
+<h1>東方キャラソート・MF <span class="version">ver.1.25.4</span></h1>
+
+<div id="init">
+  <p class="description">お好みの基準でキャラのランキングを作ろう。好きなキャラ、大きなキャラ、その他色々。</p>
+  <p class="description"><a href="javascript:if(confirm(%27http://readalittle.net/sort-sound/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://readalittle.net/sort-sound/%27" tppabs="http://readalittle.net/sort-sound/">東方原曲ソート・MF はこちら</a></p>
+  <h2>キャラクターの選択</h2>
+  <div id="toggle-chars">
+    <p id="toggle-chars-off"><button onclick="toggle_chars(false);" value="0">作品単位にする</button><br /><span>簡易選択に戻す場合はこちら</span></p>
+    <p id="toggle-chars-on" ><button onclick="toggle_chars(true);" value="1">キャラ単位にする</button><br /><span>キャラを絞って早くソートを完了させたい場合はこちら！1 カテゴリで 2 人程度残すのがオススメです。</span></p>
+    <p id="hint_select" style="display:none;">一度すべてチェックを外す事をおすすめします</p>
+  </div>
+  <div class="init_win">
+  <fieldset class="official-titles">
+  <legend>
+    <label><input class="group-outer" checked="checked" type="checkbox" /><span>正伝(Win)</span></label>
+  </legend>
+
+  <ul class="titles">
+    <li>
+      <fieldset>
+        <legend>
+          <label><input class="group-inner" name="a" checked="checked" type="checkbox" /><span>東方紅魔郷</span></label>
+        </legend>
+        <ul class="group-chars">
+         <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+         <li class="last-player"><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+         <li><label><input class="char" value="003" checked="checked" type="checkbox" /><span>ルーミア</span></label></li>
+         <li><label><input class="char" value="004" checked="checked" type="checkbox" /><span>大妖精</span></label></li>
+         <li><label><input class="char" value="005" checked="checked" type="checkbox" /><span>チルノ</span></label></li>
+         <li><label><input class="char" value="006" checked="checked" type="checkbox" /><span>美鈴</span></label></li>
+         <li><label><input class="char" value="007" checked="checked" type="checkbox" /><span>小悪魔</span></label></li>
+         <li><label><input class="char" value="008" checked="checked" type="checkbox" /><span>パチュリー</span></label></li>
+         <li><label><input class="char" value="009" checked="checked" type="checkbox" /><span>咲夜</span></label></li>
+         <li><label><input class="char" value="010" checked="checked" type="checkbox" /><span>レミリア</span></label></li>
+         <li><label><input class="char" value="011" checked="checked" type="checkbox" /><span>フランドール</span></label></li>
+        </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="b" checked="checked" type="checkbox" /><span>東方妖々夢</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li class="last-player"><label><input class="char" value="009" checked="checked" type="checkbox" /><span>咲夜</span></label></li>
+        <li><label><input class="char" value="005" checked="checked" type="checkbox" /><span>チルノ</span></label></li>
+        <li><label><input class="char" value="012" checked="checked" type="checkbox" /><span>レティ</span></label></li>
+        <li><label><input class="char" value="013" checked="checked" type="checkbox" /><span>橙</span></label></li>
+        <li><label><input class="char" value="014" checked="checked" type="checkbox" /><span>アリス</span></label></li>
+        <li><label><input class="char" value="120" checked="checked" type="checkbox" /><span>アリスの人形</span></label></li>
+        <li><label><input class="char" value="015" checked="checked" type="checkbox" /><span>リリー</span></label></li>
+        <li><label><input class="char" value="016" checked="checked" type="checkbox" /><span>ルナサ</span></label></li>
+        <li><label><input class="char" value="017" checked="checked" type="checkbox" /><span>メルラン</span></label></li>
+        <li><label><input class="char" value="018" checked="checked" type="checkbox" /><span>リリカ</span></label></li>
+        <li><label><input class="char" value="019" checked="checked" type="checkbox" /><span>妖夢</span></label></li>
+        <li><label><input class="char" value="020" checked="checked" type="checkbox" /><span>幽々子</span></label></li>
+        <li><label><input class="char" value="021" checked="checked" type="checkbox" /><span>藍</span></label></li>
+        <li><label><input class="char" value="022" checked="checked" type="checkbox" /><span>紫</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="c" checked="checked" type="checkbox" /><span>東方永夜抄</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="022" checked="checked" type="checkbox" /><span>紫</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="014" checked="checked" type="checkbox" /><span>アリス</span></label></li>
+        <li><label><input class="char" value="120" checked="checked" type="checkbox" /><span>アリスの人形</span></label></li>
+        <li><label><input class="char" value="010" checked="checked" type="checkbox" /><span>レミリア</span></label></li>
+        <li><label><input class="char" value="009" checked="checked" type="checkbox" /><span>咲夜</span></label></li>
+        <li><label><input class="char" value="019" checked="checked" type="checkbox" /><span>妖夢</span></label></li>
+        <li class="last-player"><label><input class="char" value="020" checked="checked" type="checkbox" /><span>幽々子</span></label></li>
+        <li><label><input class="char" value="024" checked="checked" type="checkbox" /><span>リグル</span></label></li>
+        <li><label><input class="char" value="025" checked="checked" type="checkbox" /><span>ミスティア</span></label></li>
+        <li><label><input class="char" value="026" checked="checked" type="checkbox" /><span>慧音</span></label></li>
+        <li><label><input class="char" value="027" checked="checked" type="checkbox" /><span>てゐ</span></label></li>
+        <li><label><input class="char" value="028" checked="checked" type="checkbox" /><span>うどんげ</span></label></li>
+        <li><label><input class="char" value="029" checked="checked" type="checkbox" /><span>永琳</span></label></li>
+        <li><label><input class="char" value="030" checked="checked" type="checkbox" /><span>輝夜</span></label></li>
+        <li><label><input class="char" value="031" checked="checked" type="checkbox" /><span>妹紅</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="d" checked="checked" type="checkbox" /><span>東方花映塚</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="005" checked="checked" type="checkbox" /><span>チルノ</span></label></li>
+        <li><label><input class="char" value="009" checked="checked" type="checkbox" /><span>咲夜</span></label></li>
+        <li><label><input class="char" value="015" checked="checked" type="checkbox" /><span>リリー</span></label></li>
+        <li><label><input class="char" value="016" checked="checked" type="checkbox" /><span>ルナサ</span></label></li>
+        <li><label><input class="char" value="017" checked="checked" type="checkbox" /><span>メルラン</span></label></li>
+        <li><label><input class="char" value="018" checked="checked" type="checkbox" /><span>リリカ</span></label></li>
+        <li><label><input class="char" value="019" checked="checked" type="checkbox" /><span>妖夢</span></label></li>
+        <li><label><input class="char" value="025" checked="checked" type="checkbox" /><span>ミスティア</span></label></li>
+        <li><label><input class="char" value="027" checked="checked" type="checkbox" /><span>てゐ</span></label></li>
+        <li><label><input class="char" value="028" checked="checked" type="checkbox" /><span>うどんげ</span></label></li>
+        <li><label><input class="char" value="035" checked="checked" type="checkbox" /><span>文</span></label></li>
+        <li><label><input class="char" value="036" checked="checked" type="checkbox" /><span>メディスン</span></label></li>
+        <li><label><input class="char" value="037" checked="checked" type="checkbox" /><span>幽香</span></label></li>
+        <li><label><input class="char" value="038" checked="checked" type="checkbox" /><span>小町</span></label></li>
+        <li><label><input class="char" value="039" checked="checked" type="checkbox" /><span>映姫</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="e" checked="checked" type="checkbox" /><span>東方風神録</span></label>
+       </legend>
+      <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li class="last-player"><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="045" checked="checked" type="checkbox" /><span>静葉</span></label></li>
+        <li><label><input class="char" value="046" checked="checked" type="checkbox" /><span>穣子</span></label></li>
+        <li><label><input class="char" value="047" checked="checked" type="checkbox" /><span>雛</span></label></li>
+        <li><label><input class="char" value="048" checked="checked" type="checkbox" /><span>にとり</span></label></li>
+        <li><label><input class="char" value="049" checked="checked" type="checkbox" /><span>椛</span></label></li>
+        <li><label><input class="char" value="035" checked="checked" type="checkbox" /><span>文</span></label></li>
+        <li><label><input class="char" value="050" checked="checked" type="checkbox" /><span>早苗</span></label></li>
+        <li><label><input class="char" value="051" checked="checked" type="checkbox" /><span>神奈子</span></label></li>
+        <li><label><input class="char" value="052" checked="checked" type="checkbox" /><span>諏訪子</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="f" checked="checked" type="checkbox" /><span>東方地霊殿</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li class="last-player"><label><input class="char" value="050" checked="checked" type="checkbox" /><span>早苗</span></label></li>
+        <li><label><input class="char" value="053" checked="checked" type="checkbox" /><span>キスメ</span></label></li>
+        <li><label><input class="char" value="054" checked="checked" type="checkbox" /><span>ヤマメ</span></label></li>
+        <li><label><input class="char" value="055" checked="checked" type="checkbox" /><span>パルスィ</span></label></li>
+        <li><label><input class="char" value="056" checked="checked" type="checkbox" /><span>勇儀</span></label></li>
+        <li><label><input class="char" value="057" checked="checked" type="checkbox" /><span>さとり</span></label></li>
+        <li><label><input class="char" value="058" checked="checked" type="checkbox" /><span>お燐</span></label></li>
+        <li><label><input class="char" value="059" checked="checked" type="checkbox" /><span>お空</span></label></li>
+        <li><label><input class="char" value="060" checked="checked" type="checkbox" /><span>こいし</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="g" checked="checked" type="checkbox" /><span>東方星蓮船</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li class="last-player"><label><input class="char" value="050" checked="checked" type="checkbox" /><span>早苗</span></label></li>
+        <li><label><input class="char" value="063" checked="checked" type="checkbox" /><span>ナズーリン</span></label></li>
+        <li><label><input class="char" value="064" checked="checked" type="checkbox" /><span>小傘</span></label></li>
+        <li><label><input class="char" value="065" checked="checked" type="checkbox" /><span>一輪</span></label></li>
+        <li><label><input class="char" value="066" checked="checked" type="checkbox" /><span>ムラサ</span></label></li>
+        <li><label><input class="char" value="067" checked="checked" type="checkbox" /><span>星</span></label></li>
+        <li><label><input class="char" value="068" checked="checked" type="checkbox" /><span>白蓮</span></label></li>
+        <li><label><input class="char" value="069" checked="checked" type="checkbox" /><span>ぬえ</span></label></li>
+        <li><label><input class="char" value="112" checked="checked" type="checkbox" /><span>雲山</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="h" checked="checked" type="checkbox" /><span>東方神霊廟</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="019" checked="checked" type="checkbox" /><span>妖夢</span></label></li>
+        <li class="last-player"><label><input class="char" value="050" checked="checked" type="checkbox" /><span>早苗</span></label></li>
+        <li><label><input class="char" value="070" checked="checked" type="checkbox" /><span>響子</span></label></li>
+        <li><label><input class="char" value="064" checked="checked" type="checkbox" /><span>小傘</span></label></li>
+        <li><label><input class="char" value="071" checked="checked" type="checkbox" /><span>芳香</span></label></li>
+        <li><label><input class="char" value="072" checked="checked" type="checkbox" /><span>青娥</span></label></li>
+        <li><label><input class="char" value="073" checked="checked" type="checkbox" /><span>屠自古</span></label></li>
+        <li><label><input class="char" value="074" checked="checked" type="checkbox" /><span>布都</span></label></li>
+        <li><label><input class="char" value="075" checked="checked" type="checkbox" /><span>神子</span></label></li>
+        <li><label><input class="char" value="069" checked="checked" type="checkbox" /><span>ぬえ</span></label></li>
+        <li><label><input class="char" value="076" checked="checked" type="checkbox" /><span>マミゾウ</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="i" checked="checked" type="checkbox" /><span>東方輝針城</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li class="last-player"><label><input class="char" value="009" checked="checked" type="checkbox" /><span>咲夜</span></label></li>
+        <li><label><input class="char" value="124" checked="checked" type="checkbox" /><span>わかさぎ姫</span></label></li>
+        <li><label><input class="char" value="125" checked="checked" type="checkbox" /><span>蛮奇</span></label></li>
+        <li><label><input class="char" value="126" checked="checked" type="checkbox" /><span>影狼</span></label></li>
+        <li><label><input class="char" value="127" checked="checked" type="checkbox" /><span>弁々</span></label></li>
+        <li><label><input class="char" value="128" checked="checked" type="checkbox" /><span>八橋</span></label></li>
+        <li><label><input class="char" value="129" checked="checked" type="checkbox" /><span>正邪</span></label></li>
+        <li><label><input class="char" value="130" checked="checked" type="checkbox" /><span>針妙丸</span></label></li>
+        <li><label><input class="char" value="131" checked="checked" type="checkbox" /><span>雷鼓</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="j" checked="checked" type="checkbox" /><span>東方紺珠伝</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="028" checked="checked" type="checkbox" /><span>うどんげ</span></label></li>
+        <li class="last-player"><label><input class="char" value="050" checked="checked" type="checkbox" /><span>早苗</span></label></li>
+        <li><label><input class="char" value="132" checked="checked" type="checkbox" /><span>清蘭</span></label></li>
+        <li><label><input class="char" value="133" checked="checked" type="checkbox" /><span>鈴瑚</span></label></li>
+        <li><label><input class="char" value="134" checked="checked" type="checkbox" /><span>ドレミー</span></label></li>
+        <li><label><input class="char" value="135" checked="checked" type="checkbox" /><span>サグメ</span></label></li>
+        <li><label><input class="char" value="136" checked="checked" type="checkbox" /><span>クラウンピース</span></label></li>
+        <li><label><input class="char" value="137" checked="checked" type="checkbox" /><span>純狐</span></label></li>
+        <li><label><input class="char" value="138" checked="checked" type="checkbox" /><span>ヘカーティア</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="k" checked="checked" type="checkbox" /><span>東方天空璋</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="005" checked="checked" type="checkbox" /><span>チルノ</span></label></li>
+        <li><label><input class="char" value="035" checked="checked" type="checkbox" /><span>文</span></label></li>
+        <li class="last-player"><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="143" checked="checked" type="checkbox" /><span>ラルバ</span></label></li>
+        <li><label><input class="char" value="144" checked="checked" type="checkbox" /><span>ネムノ</span></label></li>
+        <li><label><input class="char" value="015" checked="checked" type="checkbox" /><span>リリー</span></label></li>
+        <li><label><input class="char" value="145" checked="checked" type="checkbox" /><span>あうん</span></label></li>
+        <li><label><input class="char" value="146" checked="checked" type="checkbox" /><span>成美</span></label></li>
+        <li><label><input class="char" value="147" checked="checked" type="checkbox" /><span>舞</span></label></li>
+        <li><label><input class="char" value="148" checked="checked" type="checkbox" /><span>里乃</span></label></li>
+        <li><label><input class="char" value="149" checked="checked" type="checkbox" /><span>隠岐奈</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="l" checked="checked" type="checkbox" /><span>東方鬼形獣</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li class="last-player"><label><input class="char" value="019" checked="checked" type="checkbox" /><span>妖夢</span></label></li>
+        <li><label><input class="char" value="177" checked="checked" type="checkbox" /><span>瓔花</span></label></li>
+        <li><label><input class="char" value="178" checked="checked" type="checkbox" /><span>潤美</span></label></li>
+        <li><label><input class="char" value="179" checked="checked" type="checkbox" /><span>久侘歌</span></label></li>
+        <li><label><input class="char" value="180" checked="checked" type="checkbox" /><span>八千慧</span></label></li>
+        <li><label><input class="char" value="181" checked="checked" type="checkbox" /><span>磨弓</span></label></li>
+        <li><label><input class="char" value="182" checked="checked" type="checkbox" /><span>袿姫</span></label></li>
+        <li><label><input class="char" value="183" checked="checked" type="checkbox" /><span>早鬼</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label><input class="group-inner" name="m" checked="checked" type="checkbox" /><span>東方虹龍洞</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" checked="checked" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" checked="checked" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="009" checked="checked" type="checkbox" /><span>咲夜</span></label></li>
+        <li class="last-player"><label><input class="char" value="050" checked="checked" type="checkbox" /><span>早苗</span></label></li>
+        <li><label><input class="char" value="185" checked="checked" type="checkbox" /><span>ミケ</span></label></li>
+        <li><label><input class="char" value="186" checked="checked" type="checkbox" /><span>たかね</span></label></li>
+        <li><label><input class="char" value="187" checked="checked" type="checkbox" /><span>山如</span></label></li>
+        <li><label><input class="char" value="188" checked="checked" type="checkbox" /><span>魅須丸</span></label></li>
+        <li><label><input class="char" value="189" checked="checked" type="checkbox" /><span>典</span></label></li>
+        <li><label><input class="char" value="190" checked="checked" type="checkbox" /><span>龍</span></label></li>
+        <li><label><input class="char" value="191" checked="checked" type="checkbox" /><span>千亦</span></label></li>
+        <li><label><input class="char" value="192" checked="checked" type="checkbox" /><span>百々世</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+  </ul>
+  </fieldset>
+
+  <fieldset class="extra-titles">
+  <legend>
+    <label><input class="group-outer" type="checkbox" /><span>外伝/旧作</span></label>
+  </legend>
+  
+  <ul class="titles">
+    <li>
+      <fieldset>
+       <legend>
+         <label title="東方萃夢想、東方緋想天、東方非想天則、東方心綺楼、東方深秘録、東方憑依華"><input class="group-inner" name="A" type="checkbox" /><span>黄昏系</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="005" type="checkbox" /><span>チルノ</span></label></li>
+        <li><label><input class="char" value="006" type="checkbox" /><span>美鈴</span></label></li>
+        <li><label><input class="char" value="008" type="checkbox" /><span>パチュリー</span></label></li>
+        <li><label><input class="char" value="009" type="checkbox" /><span>咲夜</span></label></li>
+        <li><label><input class="char" value="010" type="checkbox" /><span>レミリア</span></label></li>
+        <li><label><input class="char" value="014" type="checkbox" /><span>アリス</span></label></li>
+        <li><label><input class="char" value="120" type="checkbox" /><span>アリスの人形</span></label></li>
+        <li><label><input class="char" value="019" type="checkbox" /><span>妖夢</span></label></li>
+        <li><label><input class="char" value="020" type="checkbox" /><span>幽々子</span></label></li>
+        <li><label><input class="char" value="022" type="checkbox" /><span>紫</span></label></li>
+        <li><label><input class="char" value="023" type="checkbox" /><span>萃香</span></label></li>
+        <li><label><input class="char" value="028" type="checkbox" /><span>うどんげ</span></label></li>
+        <li><label><input class="char" value="031" type="checkbox" /><span>妹紅</span></label></li>
+        <li><label><input class="char" value="035" type="checkbox" /><span>文</span></label></li>
+        <li><label><input class="char" value="038" type="checkbox" /><span>小町</span></label></li>
+        <li><label><input class="char" value="048" type="checkbox" /><span>にとり</span></label></li>
+        <li><label><input class="char" value="050" type="checkbox" /><span>早苗</span></label></li>
+        <li><label><input class="char" value="052" type="checkbox" /><span>諏訪子</span></label></li>
+        <li><label><input class="char" value="059" type="checkbox" /><span>お空</span></label></li>
+        <li><label><input class="char" value="060" type="checkbox" /><span>こいし</span></label></li>
+        <li><label><input class="char" value="061" type="checkbox" /><span>衣玖</span></label></li>
+        <li><label><input class="char" value="062" type="checkbox" /><span>天子</span></label></li>
+        <li><label><input class="char" value="065" type="checkbox" /><span>一輪</span></label></li>
+        <li><label><input class="char" value="068" type="checkbox" /><span>白蓮</span></label></li>
+        <li><label><input class="char" value="174" type="checkbox" /><span>大ナマズ</span></label></li>
+        <li><label><input class="char" value="074" type="checkbox" /><span>布都</span></label></li>
+        <li><label><input class="char" value="075" type="checkbox" /><span>神子</span></label></li>
+        <li><label><input class="char" value="076" type="checkbox" /><span>マミゾウ</span></label></li>
+        <li><label><input class="char" value="078" type="checkbox" /><span>華扇</span></label></li>
+        <li><label><input class="char" value="122" type="checkbox" /><span>こころ</span></label></li>
+        <li><label><input class="char" value="123" type="checkbox" /><span>菫子</span></label></li>
+        <li><label><input class="char" value="150" type="checkbox" /><span>紫苑</span></label></li>
+        <li><label><input class="char" value="151" type="checkbox" /><span>女苑</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label title="文花帖、ダブルスポイラー、妖精大戦争、弾幕アマノジャク、秘封ナイトメアダイアリー"><input class="group-inner" name="B" type="checkbox" /><span>STG系</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="035" type="checkbox" /><span>文</span></label></li>
+        <li><label><input class="char" value="077" type="checkbox" /><span>はたて</span></label></li>
+        <li><label><input class="char" value="129" type="checkbox" /><span>正邪</span></label></li>
+        <li><label><input class="char" value="005" type="checkbox" /><span>チルノ</span></label></li>
+        <li><label><input class="char" value="123" type="checkbox" /><span>菫子</span></label></li>
+        <li><label><input class="char" value="004" type="checkbox" /><span>大妖精</span></label></li>
+        <li><label><input class="char" value="015" type="checkbox" /><span>リリー</span></label></li>
+        <li><label><input class="char" value="040" type="checkbox" /><span>サニー</span></label></li>
+        <li><label><input class="char" value="041" type="checkbox" /><span>スター</span></label></li>
+        <li><label><input class="char" value="042" type="checkbox" /><span>ルナ</span></label></li>
+        <li><label><input class="char" value="002" type="checkbox" /><span>魔理沙</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label title="東方三月精、東方儚月抄、東方茨歌仙、東方鈴奈庵、東方酔蝶華、東方香霖堂、東方求聞口授、東方求聞史紀、グリモワールオブマリサ"><input class="group-inner" name="D" type="checkbox" /><span>書籍系</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="032" type="checkbox" /><span>レイセン</span></label></li>
+        <li><label><input class="char" value="033" type="checkbox" /><span>依姫</span></label></li>
+        <li><label><input class="char" value="034" type="checkbox" /><span>豊姫</span></label></li>
+        <li><label><input class="char" value="040" type="checkbox" /><span>サニー</span></label></li>
+        <li><label><input class="char" value="041" type="checkbox" /><span>スター</span></label></li>
+        <li><label><input class="char" value="042" type="checkbox" /><span>ルナ</span></label></li>
+        <li><label><input class="char" value="136" type="checkbox" /><span>クラウンピース</span></label></li>
+        <li><label><input class="char" value="043" type="checkbox" /><span>阿求</span></label></li>
+        <li><label><input class="char" value="044" type="checkbox" /><span>霖之助</span></label></li>
+        <li><label><input class="char" value="078" type="checkbox" /><span>華扇</span></label></li>
+        <li><label><input class="char" value="119" type="checkbox" /><span>朱鷺子</span></label></li>
+        <li><label><input class="char" value="121" type="checkbox" /><span>小鈴</span></label></li>
+        <li><label><input class="char" value="184" type="checkbox" /><span>美宵</span></label></li>
+        <li><label><input class="char" value="139" type="checkbox" /><span>易者</span></label></li>
+        <li><label><input class="char" value="153" type="checkbox" /><span>蟒蛇</span></label></li>
+        </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label title="サウンドトラック、秘封倶楽部"><input class="group-inner" name="E" type="checkbox" /><span>音楽CD系</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="043" type="checkbox" /><span>阿求</span></label></li>
+        <li><label><input class="char" value="079" type="checkbox" /><span>メリー</span></label></li>
+        <li><label><input class="char" value="080" type="checkbox" /><span>蓮子</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend>
+         <label title="名前しかないキャラ"><input class="group-inner" name="E" type="checkbox" /><span>設定だけ</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="113" type="checkbox" /><span>レイラ</span></label></li>
+        <li><label><input class="char" value="116" type="checkbox" /><span>妖忌</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+    <li>
+      <fieldset>
+       <legend style="color:blue;">
+         <label title="東方靈異伝、東方封魔録、東方夢時空、東方幻想郷、東方怪綺談"><input class="group-inner" name="F" type="checkbox" /><span>東方旧作系</span></label>
+       </legend>
+       <ul class="group-chars">
+        <li><label><input class="char" value="001" alt="140" type="checkbox" /><span>霊夢</span></label></li>
+        <li><label><input class="char" value="002" alt="141" type="checkbox" /><span>魔理沙</span></label></li>
+        <li><label><input class="char" value="014" alt="142" type="checkbox" /><span>アリス</span></label></li>
+        <li><label><input class="char" value="037" alt="176" type="checkbox" /><span>幽香</span></label></li>
+        <li class="last-player"><label><input class="char" value="083" type="checkbox" /><span>魅魔</span></label></li>
+        <li><label><input class="char" value="086" type="checkbox" /><span>神玉</span></label></li>
+        <li><label><input class="char" value="087" type="checkbox" /><span>幽幻魔眼</span></label></li>
+        <li><label><input class="char" value="088" type="checkbox" /><span>エリス</span></label></li>
+        <li><label><input class="char" value="089" type="checkbox" /><span>サリエル</span></label></li>
+        <li><label><input class="char" value="090" type="checkbox" /><span>キクリ</span></label></li>
+        <li><label><input class="char" value="091" type="checkbox" /><span>コンガラ</span></label></li>
+        <li><label><input class="char" value="092" type="checkbox" /><span>里香</span></label></li>
+        <li><label><input class="char" value="093" type="checkbox" /><span>明羅</span></label></li>
+        <li><label><input class="char" value="094" type="checkbox" /><span>エレン</span></label></li>
+        <li><label><input class="char" value="095" type="checkbox" /><span>小兎姫</span></label></li>
+        <li><label><input class="char" value="096" type="checkbox" /><span>カナ</span></label></li>
+        <li><label><input class="char" value="097" type="checkbox" /><span>理香子</span></label></li>
+        <li><label><input class="char" value="098" type="checkbox" /><span>ちゆり</span></label></li>
+        <li><label><input class="char" value="099" type="checkbox" /><span>岡崎夢美</span></label></li>
+        <li><label><input class="char" value="152" type="checkbox" /><span>る～こと</span></label></li>
+        <li><label><input class="char" value="100" type="checkbox" /><span>オレンジ</span></label></li>
+        <li><label><input class="char" value="101" type="checkbox" /><span>くるみ</span></label></li>
+        <li><label><input class="char" value="102" type="checkbox" /><span>エリー</span></label></li>
+        <li><label><input class="char" value="103" type="checkbox" /><span>夢月</span></label></li>
+        <li><label><input class="char" value="104" type="checkbox" /><span>幻月</span></label></li>
+        <li><label><input class="char" value="105" type="checkbox" /><span>サラ</span></label></li>
+        <li><label><input class="char" value="106" type="checkbox" /><span>ルイズ</span></label></li>
+        <li><label><input class="char" value="107" type="checkbox" /><span>ユキ</span></label></li>
+        <li><label><input class="char" value="108" type="checkbox" /><span>マイ</span></label></li>
+        <li><label><input class="char" value="109" type="checkbox" /><span>夢子</span></label></li>
+        <li><label><input class="char" value="110" type="checkbox" /><span>神綺</span></label></li>
+        <li><label><input class="char" value="111" type="checkbox" /><span>玄爺</span></label></li>
+        <li><label><input class="char" value="117" type="checkbox" /><span>魔天使</span></label></li>
+        <li><label><input class="char" value="118" type="checkbox" /><span>呪い子</span></label></li>
+       </ul>
+      </fieldset>
+    </li>
+  </ul>
+  </fieldset>
+  
+  <fieldset id="option">
+    <legend>オプション</legend>
+    <ul>
+      <li><label>ランキング件数
+        <select id="rank_num">
+          <option value="10" selected="selected">10位まで</option>
+          <option value="1">1位だけ</option>
+          <option value="5">5位まで</option>
+          <option value="7">7位まで (東方 Wiki 人気投票用)</option>
+          <option value="20">20位まで</option>
+          <option value="30">30位まで</option>
+          <option value="50">50位まで</option>
+          <option value="100">100位まで</option>
+          <option value="999">全て</option>
+        </select>
+      </label></li>
+      <li><label><input id="enableOldVersionStyle" value="1" name="enableOldVersionStyle" type="checkbox" />旧作と Win 版の同名キャラを区別する</label></li>
+      <li><label><input id="enableEvenChoice" value="1" name="enableEvenChoice" type="checkbox" />選べない(引き分け)を有効にする</label></li>
+      <li>イラストのタイプ
+        <ul class="illust-type">
+          <li><label><input value="1" name="facePattern" type="radio" checked="checked" />スマイル</label></li>
+          <li><label><input value="2" name="facePattern" type="radio" />ノーマル</label></li>
+          <li><label><input value="3" name="facePattern" type="radio" />涙目</label></li>
+          <li><label><input value="99" name="facePattern" type="radio" />画像なし</label></li>
+        </ul>
+      </li>
+    </ul>
+  </fieldset>
+  <div class="clear"><button id="start_button">ソート開始！</button></div>
+  </div>
+</div>
+
+<div style="display: none;" id="ui">
+  <h2>こっちだと思う方を選択</h2>
+    <h3 class="count">第 <span id="count">0</span> 問</h3>
+    <p id="caption"></p>
+  <div class="zitem" id="left">
+  	<div><img accesskey="1" width="200" height="300" /></div>
+  	<div class="caption">
+      <h3 class="nick"></h3>
+      <p class="name"></p>
+  	</div>
+  </div>
+  <div class="zitem" id="right">
+  	<div><img accesskey="2" width="200" height="300" /></div>
+  	<div class="caption">
+      <h3 class="nick"></h3>
+      <p class="name"></p>
+  	</div>
+  </div>
+  <div class="special_select">
+    <button onclick="remove_left()">左のキャラはソートから外す</button>
+    <button onclick="remove_right()">右のキャラはソートから外す</button><br />
+    <button id="hold" onclick="ask_hold()">あとで (パスする)</button>
+    <button id="back" onclick="ask_back()">待った（1つ前の質問に戻る）</button><br />
+    <button id="even" onclick="select_even()">選べない</button>
+    <button onclick="return (confirm('本当に？') &amp;&amp; auto_sort());">残り全てをランダムに選ぶ</button>
+    
+    <!-- button onclick="return (toggle_current());">デバッグ</button -->
+    <p>Tips！PC では Alt+1 で左、Alt+2 で右を選択出来ます。<br />(Firefox は Alt+Shift+1/2)</p>
+  </div>
+</div>
+
+<div style="display: none;" id="result">
+</div>
+
+<p id="times"></p>
+<!--
+<ul id="samp" class="debug" ></ul>
+<ul id="sampback" class="debug"></ul>
+-->
+<div style="display: none;" id="reset">
+<button id="reset_button">ソートに戻る</button>
+</div>
+
+
+<div id="attension">
+<p>このソートは、一対比較法によるヒープソートを利用して作られています。<br />
+選択肢の順序により、結果にはブレが発生する可能性があります（順序効果）。</p>
+</div>
+<address>
+公式 Twitter アカウント：<a href="javascript:if(confirm(%27https://twitter.com/tohosort_mf  \n\nThis file was not retrieved by Teleport Pro, because it is addressed using an unsupported protocol (e.g., gopher).  \n\nDo you want to open it from the server?%27))window.location=%27https://twitter.com/tohosort_mf%27" tppabs="https://twitter.com/tohosort_mf">@tohosort_mf</a>
+<br />オリジナルスクリプト：<a href="javascript:if(confirm(%27http://totora.jpn.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://totora.jpn.org/%27" tppabs="http://totora.jpn.org/">ねこトトラ</a>
+<br />イラスト：<a href="javascript:if(confirm(%27http://gensoukyou.1000.tv/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://gensoukyou.1000.tv/%27" tppabs="http://gensoukyou.1000.tv/">幻想幽玄庵</a>, <a href="javascript:if(confirm(%27http://www.pixiv.net/member.php?id=4920496  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27))window.location=%27http://www.pixiv.net/member.php?id=4920496%27" tppabs="http://www.pixiv.net/member.php?id=4920496">dairi(pixiv)</a>
+<br />このスクリプトの利用・改造・転載等は<strong>画像を除いて</strong>自由です。
+<br />東方 Project 及びキャラクターは上海アリス幻樂団の著作物です。
+<br />MF とは Minor Fix の事です。
+<br />東方キャラソート・MF は 2016-01-16 に開設されました。
+</address>
+
+</body>
+</html>

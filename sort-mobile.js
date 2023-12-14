@@ -635,7 +635,7 @@ SortObject.prototype = {
 		if (this.children.length == 1) {
 			// 同じ順位のキャラがいなくなった＝順位が確定した
 			let currentResultRank = this.level() + 1;
-			let captionText = "現在、" + currentResultRank + " 位まで確定しています。";
+			let captionText = "现在、截至第" + currentResultRank + " 位已确定。";
 			$("#caption").text(captionText);
 			$("#caption").show();
 			return this.children[0].ask();

@@ -87,7 +87,7 @@ function show_result_from_hash() {
 	
 	if( !RankNum ){
 		// 非対応ブラウザ。古いスマートフォン？
-		alert("動作非対応ブラウザをお使いのようです。オプション指定無しのまま実行します。");
+		alert("使用了不受支持的浏览器。将在默认设置的情况下开始。");
 		RankNum = 10;
 		FacePattern = FacePatternDefault;
 	}
@@ -166,13 +166,13 @@ function ask_start() {
 		}
 	});
 	// そんな設定で大丈夫か？
-	if( selectedChars.length >= 400){
-		if( confirm("ソートする対象が " + selectedChars.length + " 件あります。\n設問数が非常に多くなる事が想定されますが、覚悟はよろしいですか？") === false ){
+	if(RankNum >= 100 && selectedChars.length>=100){
+		if( confirm("有超过100名学生需要被选择，设问数量会非常多。\n可能会耗时1小时以上，您做好准备了吗？") === false ){
 			return false;
 		}
 	}
 	if (selectedChars.length <= 1) {
-		alert("ソートするものがありません。");
+		alert("没有选择需要排序的范围。");
 		return false;
 	}
 	if ($("#enableEvenChoice").is(":checked")) {

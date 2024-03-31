@@ -22,12 +22,12 @@ var os = function () {
 
    // pc时加载一套页面
    if(os.isPc){
-      location.replace("pc.html"); 
+      location.replace("zlz.html"); 
    }
        
    // 移动端时加载另外一套页面 
    if (os.isAndroid || os.isPhone) { 
-      location.replace('wap.html');
+      location.replace('zlm.html');
    } else if (os.isTablet) {
       location.replace('pc.html');
    }

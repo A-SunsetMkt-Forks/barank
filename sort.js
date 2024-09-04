@@ -512,7 +512,7 @@ function show_result() {
 		strHtm += '[<a target="_blank" href="https://twitter.com/intent/tweet?url=' + location.href + '?' + siteQuery + '&amp;text=' +
 			tweetResult.join("") + '">将此结果发推</a>]<br />';
 		strHtm += '[<a href="?' + siteQuery + '">复制此结果的URL</a>] (用于分享到Twitter之外的场合)<br />';
-		strHtm += '服务器不便宜，<a href="https://afdian.net/a/khrisma" target="_blank">赞助作者</a>来让本站更好运营！<br />';
+		strHtm += '服务器不便宜，<a href="https://afdian.com/a/khrisma" target="_blank">赞助作者</a>来让本站更好运营！<br />';
 		strHtm += '</div>';
 	}
 	strHtm += simpleResult.join("\n");

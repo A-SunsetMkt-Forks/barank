@@ -492,7 +492,7 @@ function show_result() {
 		if (FacePattern == noFacePatternNo) {
 			strHtm += aryRanks[i].name + '</li>\n';
 		} if (i == 0 && aryRanks[i].id == 799) {
-			strHtm += '<a href="https://saiba.moe/phase1.html"><img src="' + aryRanks[i].getImagePath() + '" /></a><br />' + aryRanks[i].name + '</li>\n';
+			strHtm += '<a href="https://saiba.moe/phase1"><img src="' + aryRanks[i].getImagePath() + '" /></a><br />' + aryRanks[i].name + '</li>\n';
 		} else {
 			strHtm += '<img src="' + aryRanks[i].getImagePath() + '" alt="' + aryRanks[i].nick + '" /><br />' + aryRanks[i].name + '</li>\n';
 		}
